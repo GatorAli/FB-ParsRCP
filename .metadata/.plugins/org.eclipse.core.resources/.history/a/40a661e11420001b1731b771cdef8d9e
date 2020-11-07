@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="de.hsmw.service.fb.apple">
+   <service>
+      <provide interface="de.hsmw.service.fb.apple.api.FacebookServiceApple"/>
+   </service>
+   <implementation class="de.hsmw.service.fb.apple.internal.FacebookServiceAppleImpl />
+  
+   
+</scr:component>

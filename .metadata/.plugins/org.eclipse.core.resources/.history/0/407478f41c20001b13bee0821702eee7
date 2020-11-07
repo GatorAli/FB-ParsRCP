@@ -1,0 +1,6 @@
+output.. = bin/
+bin.includes = META-INF/,\
+               OSGI-INF/component.xml,\
+               lib/sqlite-jdbc-3.32.3.2.jar,\
+               .
+source../ = src/

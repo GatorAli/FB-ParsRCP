@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Fb
+Bundle-SymbolicName: de.hsmw.service.fb
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: de.hsmw.service.fb
+Bundle-RequiredExecutionEnvironment: JavaSE-14
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.osgi
+Export-Package: de.hsmw.service.fb.api
+Service-Component: OSGI-INF/component.xml
+Bundle-ClassPath: ./,
+ lib/sqlite-jdbc-3.32.3.2.jar
+Import-Package: de.hsmw.service.fb.api,
+ org.eclipse.e4.core.di.annotations,
+ org.eclipse.swt.widgets

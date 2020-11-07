@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.Button"/>
+    <fullyQualifiedTypeName name="org.eclipse.swt.custom.StackLayout"/>
+    <fullyQualifiedTypeName name="org.eclipse.swt.SWT"/>
+    <fullyQualifiedTypeName name="org.eclipse.swt.widgets.Button"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
+    <fullyQualifiedTypeName name="javafx.scene.layout.AnchorPane"/>
+    <fullyQualifiedTypeName name="org.eclipse.swt.widgets.Composite"/>
+    <fullyQualifiedTypeName name="org.eclipse.swt.widgets.FileDialog"/>
+    <fullyQualifiedTypeName name="de.hsmw.service.fb.api.iFacebooklService"/>
+    <fullyQualifiedTypeName name="java.awt.Window"/>
+    <fullyQualifiedTypeName name="org.eclipse.e4.ui.workbench.modeling.EModelService"/>
+    <fullyQualifiedTypeName name="org.eclipse.e4.ui.model.application.MApplication"/>
+    <fullyQualifiedTypeName name="org.eclipse.swt.widgets.Shell"/>
+    <fullyQualifiedTypeName name="org.eclipse.e4.ui.model.application.ui.MUIElement"/>
+    <fullyQualifiedTypeName name="sun.jvm.hotspot.debugger.cdbg.basic.LazyBlockSym"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.sun.java.swing.plaf.windows.WindowsBorders.DashedBorder"/>
+    <fullyQualifiedTypeName name="org.eclipse.swt.widgets.MessageBox"/>
+    <fullyQualifiedTypeName name="org.eclipse.swt.widgets.Display"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.security.Provider.Service"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="de.hsmw.ui.parts.Import"/>
+    <fullyQualifiedTypeName name="de.hsmw.ui.parts.Login"/>
+    <fullyQualifiedTypeName name="de.hsmw.ui.parts.Dashboard"/>
+    <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
+    <fullyQualifiedTypeName name="org.eclipse.e4.core.di.annotations.Execute"/>
+    <fullyQualifiedTypeName name="javax.inject.Inject"/>
+    <fullyQualifiedTypeName name="de.hsmw.service.fb.apple.api.FacebookServiceApple"/>
+    <fullyQualifiedTypeName name="jdk.internal.net.http.ResponseTimerEvent"/>
+</qualifiedTypeNameHistroy>

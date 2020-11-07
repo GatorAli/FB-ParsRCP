@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="osgiProject" value="false"/>
+	<item key="generatePluginActivator" value="false"/>
+	<item key="uiPlugin" value="true"/>
+	<item key="apiAnalysis" value="false"/>
+	<item key="rcpPlugin" value="false"/>
+	<item key="initLaunch" value="false"/>
+	<list key="providers">
+		<item value="TEST"/>
+		<item value="EXAMPLE"/>
+	</list>
+	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="PDEFormActionManager">
+	</section>
+	<section name="org.eclipse.pde.ui.PLUGIN_STATUS_DIALOG">
+		<item key="DIALOG_WIDTH" value="1009"/>
+		<item key="DIALOG_HEIGHT" value="420"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|10.2|0|WINDOWS|1|-17|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.pde.ui.dialogs.PluginSelectionDialog">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="738"/>
+			<item key="DIALOG_WIDTH" value="734"/>
+			<item key="DIALOG_X_ORIGIN" value="815"/>
+			<item key="DIALOG_Y_ORIGIN" value="192"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|10.2|0|WINDOWS|1|-17|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="dependenciesView">
+	</section>
+	<section name="editBundleContainerWizard">
+	</section>
+	<section name="pluginsView">
+	</section>
+	<section name="org.eclipse.pde.ui.dialogs.FeatureSelectionDialog">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="954"/>
+			<item key="DIALOG_Y_ORIGIN" value="210"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|10.2|0|WINDOWS|1|-17|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="pde-form-editor">
+		<item key="org.eclipse.pde.ui.manifestEditor" value="dependencies"/>
+	</section>
+</section>

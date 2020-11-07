@@ -1,0 +1,11 @@
+package de.hsmw.ui.parts;
+
+import javax.annotation.PostConstruct;
+
+public class Dashboard {
+
+	
+	@PostConstruct
+	public void 
+	
+}

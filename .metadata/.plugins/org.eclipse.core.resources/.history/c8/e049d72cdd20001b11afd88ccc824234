@@ -1,0 +1,28 @@
+package de.hsmw.service.fb.apple.api;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public interface FacebookServiceApple {
+	
+	public static final Connection connDB = null;
+	
+	
+	public void setOsQuery(String retrieveOwnerDataQuery, String retrieveContactData, 
+			String retrieveConversationData, String retrieveSharedPlaces);
+	
+	void connectDatabase(String dbPath) throws SQLException;
+	
+	void retrieveContactData(String threads_db2) throws SQLException;
+
+	
+	void retrieveOwnerData(String prefsDb) throws SQLException;
+
+	
+	void retrieveConversationData(String threads_db2) throws SQLException;
+	
+	void retrieveSharedPlaces(String threads_db2) throws SQLException;
+	
+	
+	
+}
