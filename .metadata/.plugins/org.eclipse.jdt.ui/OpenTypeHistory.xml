@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=de.hsmw.service.fb.apple/src&lt;de.hsmw.service.fb.apple.internal{FacebookServiceAppleImpl.java[FacebookServiceAppleImpl" modifiers="1" timestamp="1604662430000"/>
-    <typeInfo handle="=de.hsmw.service.fb.android/src&lt;de.hsmw.service.fb.android.internal{FacebookServiceAndroidImpl.java[FacebookServiceAndroidImpl" modifiers="1" timestamp="1604655220000"/>
-    <typeInfo handle="=de.hsmw.service.fb.apple/src&lt;de.hsmw.service.fb.apple.api{FacebookServiceApple.java[FacebookServiceApple" modifiers="513" timestamp="1604655156000"/>
-    <typeInfo handle="=de.hsmw.service.fb.android/src&lt;de.hsmw.service.fb.android.api{FacebookServiceAndroid.java[FacebookServiceAndroid" modifiers="513" timestamp="1604655200000"/>
+    <typeInfo handle="=de.hsmw.service.fb.apple/src&lt;de.hsmw.service.fb.apple.internal{FacebookServiceAppleImpl.java[FacebookServiceAppleImpl" modifiers="1" timestamp="1604742462000"/>
+    <typeInfo handle="=de.hsmw.service.fb.android/src&lt;de.hsmw.service.fb.android.internal{FacebookServiceAndroidImpl.java[FacebookServiceAndroidImpl" modifiers="1" timestamp="1604742298000"/>
+    <typeInfo handle="=de.hsmw.service.fb.apple/src&lt;de.hsmw.service.fb.apple.api{FacebookServiceApple.java[FacebookServiceApple" modifiers="513" timestamp="1604741988000"/>
+    <typeInfo handle="=de.hsmw.service.fb.android/src&lt;de.hsmw.service.fb.android.api{FacebookServiceAndroid.java[FacebookServiceAndroid" modifiers="513" timestamp="1604742274000"/>
 </typeInfoHistroy>

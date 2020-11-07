@@ -123,3 +123,16 @@
 2020-11-07 10:49:54,378 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@48209b59{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
 2020-11-07 10:49:54,379 [Stop Help Server] INFO  org.eclipse.jetty.server.session - node0 Stopped scavenging
 2020-11-07 10:49:54,387 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@706eb136{/help,null,UNAVAILABLE}
+2020-11-07 11:11:33,595 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-11-07 11:13:00,430 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @147816ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-11-07 11:13:00,560 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-08-03T13:24:06.825Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 15+36-1562
+2020-11-07 11:13:00,578 [Start Help Server] INFO  org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+2020-11-07 11:13:00,578 [Start Help Server] INFO  org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+2020-11-07 11:13:00,579 [Start Help Server] INFO  org.eclipse.jetty.server.session - node0 Scavenging every 600000ms
+2020-11-07 11:13:00,603 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@4ad5e17f{/help,null,AVAILABLE}
+2020-11-07 11:13:00,623 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@32ed0ea4{HTTP/1.1, (http/1.1)}{127.0.0.1:50118}
+2020-11-07 11:13:00,623 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @148010ms
+2020-11-07 11:13:00,623 [Start Help Server] INFO  org.eclipse.jetty.server.session - node0 Scavenging every 600000ms
+2020-11-07 15:23:06,631 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@32ed0ea4{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2020-11-07 15:23:06,632 [Stop Help Server] INFO  org.eclipse.jetty.server.session - node0 Stopped scavenging
+2020-11-07 15:23:06,640 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@4ad5e17f{/help,null,UNAVAILABLE}
