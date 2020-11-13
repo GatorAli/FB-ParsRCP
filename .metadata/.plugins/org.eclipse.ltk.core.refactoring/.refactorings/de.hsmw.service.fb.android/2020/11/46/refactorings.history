@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;de.hsmw.service.fb.android.api.FacebookServiceAndroid&apos; to &apos;IFacebookServiceAndroid&apos;&#x0D;&#x0A;- Original project: &apos;de.hsmw.service.fb.android&apos;&#x0D;&#x0A;- Original element: &apos;de.hsmw.service.fb.android.api.FacebookServiceAndroid&apos;&#x0D;&#x0A;- Renamed element: &apos;de.hsmw.service.fb.android.api.IFacebookServiceAndroid&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;FacebookServiceAndroid&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;de.hsmw.service.fb.android.api{FacebookServiceAndroid.java[FacebookServiceAndroid" matchStrategy="1" name="IFacebookServiceAndroid" qualified="false" references="true" similarDeclarations="false" stamp="1605259247708" textual="false" version="1.0"/>
+</session>

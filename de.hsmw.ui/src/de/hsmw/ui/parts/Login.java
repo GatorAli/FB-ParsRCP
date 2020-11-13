@@ -17,8 +17,8 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Text;
-import de.hsmw.service.fb.android.api.FacebookServiceAndroid;
-import de.hsmw.service.fb.apple.api.FacebookServiceApple;
+import de.hsmw.service.fb.android.api.IFacebookServiceAndroid;
+import de.hsmw.service.fb.apple.api.IFacebookServiceApple;
 
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -33,9 +33,9 @@ import org.eclipse.swt.events.SelectionEvent;
 		@Inject MApplication app;
 	
 	@Inject
-	private FacebookServiceAndroid androidService;
+	private IFacebookServiceAndroid androidService;
 	@Inject 
-	private FacebookServiceApple appleService;
+	private IFacebookServiceApple appleService;
 
 	
 	private Text db_path_1;
@@ -228,9 +228,8 @@ import org.eclipse.swt.events.SelectionEvent;
 				
 					appleService.getData(db1_path);
 					
+							
 				
-				
-				System.out.println("Apple Daten Stehen bald hier");
 			}
 				
 		}

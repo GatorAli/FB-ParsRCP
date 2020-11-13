@@ -4,9 +4,9 @@ import java.sql.*;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.swt.widgets.Composite;
 
-import de.hsmw.service.fb.android.api.FacebookServiceAndroid;
+import de.hsmw.service.fb.android.api.IFacebookServiceAndroid;
 
-public class FacebookServiceAndroidImpl implements FacebookServiceAndroid {
+public class FacebookServiceAndroidImpl implements IFacebookServiceAndroid {
 	
 	
 	Connection connDB = null;

@@ -4,19 +4,19 @@ import java.sql.*;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.swt.widgets.Composite;
 
-import de.hsmw.service.fb.apple.api.FacebookServiceApple;
+import de.hsmw.service.fb.apple.api.IFacebookServiceApple;
 
 
-public class FacebookServiceAppleImpl implements FacebookServiceApple {
+public class FacebookServiceAppleImpl implements IFacebookServiceApple {
 	
 	Connection connDB = null;
 	ResultSet rs = null;
 	
-	private String appleGetOwnerQuery = "SELECT value FROM preferences WHERE key like '/auth/auth_device_based_login_credentials_______________'";
-	private String appleGetContatcsQuery = "SELECT user_key, first_name, last_name, username FROM thread_users";
-	private String appleGetConversationsQuery = "SELECT thread_key, name, senders, custom_nicknames,last_call_ms FROM threads";
-	private String appleGetSharedPlacesQuery = "SELECT shares FROM messages WHERE shares IS NOT NULL";
-	private String appleGetOwnerMailQuery = "SELECT value FROM preferences WHERE key='/google_accounts'";
+	private String appleGetOwnerQuery = "SELECT thread_name FROM _self_thread_name";
+	private String appleGetContatcsQuery = "SELECT contact_id, name, first_name FROM simple_contact";
+	private String appleGetConversationsQuery = "SELECT thread_key, thread_name, nullstate_description_text1 FROM threads";
+	private String appleGetSharedPlacesQuery = "SELECT timestamp_ms, default_cta_title, title_text FROM attachments WHERE default_cta_type = \"xma_live_location_sharing\"";
+	private String appleGetOwnerMailQuery = "SELECT * FROM self_profile";
 	
 	
 	
@@ -59,8 +59,6 @@ public class FacebookServiceAppleImpl implements FacebookServiceApple {
 		}
 		
 	}
-	
-	
 	
 	@Override
 	public void connectDatabase(String dbPath) throws SQLException {
@@ -124,16 +122,27 @@ public class FacebookServiceAppleImpl implements FacebookServiceApple {
 		}
 		try {
 
+			System.out.println("\n" + "Besitzer Daten");
+			
 			rs = st.executeQuery(appleGetOwnerQuery );
-			String name = rs.getString(1);
-					name = (String) name.subSequence(name.indexOf(":")+1, name.indexOf(","));
 			
-			System.out.println("\n" + "Besitzer" +"\n " + name +"\n");
+			for(int i=1; i<=rs.getMetaData().getColumnCount();i++){
+				System.out.println(rs.getString(i));
+					
+				
+			}
 			
 			
-			rs = st.executeQuery("SELECT value FROM preferences WHERE key='/google_accounts'" );
+			rs = st.executeQuery(appleGetOwnerMailQuery );
+			for(int i=1; i<=rs.getMetaData().getColumnCount();i++){
+				System.out.println(rs.getString(i));
+					
+				
+			}
+			
+			
 		
-			System.out.println("E-Mail" + "\n" + rs.getString(1) +"\n");
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -165,18 +174,17 @@ public class FacebookServiceAppleImpl implements FacebookServiceApple {
 		while(rs.next()) {
 						
 			//Itterate Columns until ColumnCount reached
-			for(int i=1; i<=rs.getMetaData().getColumnCount(); i+=4) {
+			for(int i=1; i<=rs.getMetaData().getColumnCount(); i+=3) {
 								
 				String fbid = rs.getString(i);
 				String firstname = rs.getString(i+1);
 				String lastname = rs.getString(i+2);
-				String username = rs.getString(i+3);
 				
-				System.out.println(fbid +" "+ firstname +" "+ lastname +" "+ username);
+				
+				System.out.println(fbid +" "+ firstname +" "+ lastname);
+		
+		
 			}
-		
-		
-		
 		}
 	
 	
@@ -210,16 +218,15 @@ public class FacebookServiceAppleImpl implements FacebookServiceApple {
 		while(rs.next()) {
 						
 			//Itterate Columns until ColumnCount reached
-			for(int i=1; i<=rs.getMetaData().getColumnCount(); i+=5) {
+			for(int i=1; i<=rs.getMetaData().getColumnCount(); i+=3) {
 								
 				String thread_key = rs.getString(i);
-				String name = rs.getString(i+1);
+				String threadname = rs.getString(i+1);
 				String senders = rs.getString(i+2);
-				String custom_nicknames = rs.getString(i+3);
-				String last_call_ms = rs.getString(i+4);
 				
 				
-				System.out.println(thread_key +" "+ name +" "+ senders +" "+ custom_nicknames +" "+last_call_ms);
+				
+				System.out.println(thread_key +" "+ threadname +" "+ senders);
 			}
 		
 		
@@ -257,27 +264,15 @@ public class FacebookServiceAppleImpl implements FacebookServiceApple {
 		
 		while(rs.next()) {
 			
-		String ort = null;
-		String coords =null;
-		
-		ort = rs.getString(1).substring(rs.getString(1).indexOf(","));
-		ort = ort.substring(ort.indexOf(":")+1);
-		ort = ort.substring(ort.length()-ort.length(), ort.indexOf(","));
-		
-		coords = rs.getString(1);
-		
-		if (coords.indexOf("Fq") == -1) {
-			coords = "";
+		for(int i=1; i<rs.getMetaData().getColumnCount();i+=3) {
 			
-		}else {
-			coords = coords.substring(coords.indexOf("Fq%3D")+5);
-			coords = coords.substring(0, coords.indexOf("%3D"));
-			coords = coords.replace("%252C", " ");
-			coords = coords.replace("%26hl", "");
+			String timestamp = rs.getString(i);
+			String state = rs.getString(i+1);
+			String text = rs.getString(i+2);
+			
+			
+			System.out.println(timestamp + " " + state + " " + text);
 		}
-	//	
-		
-		System.out.println(ort + " @ " + coords);
 		
 		
 		}
