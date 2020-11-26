@@ -1,0 +1,144 @@
+package de.hsmw.service.fb.android.internal;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import de.hsmw.service.fb.android.api.IFacebookServiceAndroid;
+
+public class AndroidContactImpl{
+
+	Connection connDB2;
+	ResultSet rs = null;
+	ResultSet rs2 = null;
+	
+	String id;	
+	String name;
+	String localName;
+	String phoneNumber;
+	String about;
+	String profilePhotoPath;
+	String isOwner;
+	long createdAt;
+	
+	String ownerName = "";
+	String ownerID = "";
+	
+	
+	
+	public void getContacts(Connection connDB, String db1path, String db2path)  {
+		
+		try {
+			retrieveOwnerData(db2path);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		Statement st = null;
+		try {
+			st = connDB.createStatement();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		try {
+			
+			rs = st.executeQuery("Select ");
+			rs2 = st.executeQuery("Select ");
+			System.out.println(rs.getMetaData().getColumnCount());
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	public void retrieveOwnerData(String prefsDb) throws SQLException {
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("jdbc:sqlite:");
+		sb.append(prefsDb);
+
+		try {
+		
+			
+		Class.forName("org.sqlite.JDBC");
+		
+		
+		connDB2 = DriverManager.getConnection(sb.toString());
+		
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}  catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		System.out.println("SQL Problem");
+		
+		
+	}
+	
+		try {
+			if( !connDB2.isClosed()) {
+				
+				System.out.println("Verbunden");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	
+	// TODO Auto-generated method stub
+	ResultSet rs2 = null;
+	Statement st = null;
+	try {
+		st = connDB2.createStatement();
+	} catch (SQLException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
+	try {
+
+		rs = st.executeQuery("SELECT key, value FROM preferences WHERE key like '/auth/auth_device_based_login_credentials_______________'");
+		String name = rs.getString(2);
+				name = (String) name.subSequence(name.indexOf(":")+1, name.indexOf(","));
+		
+		String id = rs.getString(1).substring(rs.getString(1).indexOf("credentials")+11);
+		System.out.println("\n" + "Besitzer" +"\n " + name +"\n");
+	
+		ownerName = name;
+		ownerID = id;
+		
+		System.out.println(ownerName +" , "+ownerID);
+		
+
+	
+} catch (SQLException e1) {
+	// TODO Auto-generated catch block
+	e1.printStackTrace();
+}
+
+}
+
+	
+	
+	
+	
+}

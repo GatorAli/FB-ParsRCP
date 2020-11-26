@@ -5,13 +5,19 @@ Bundle-SymbolicName: de.hsmw.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: de.hsmw.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-14
-Require-Bundle: de.hsmw.service.fb.apple,
- de.hsmw.service.fb.android,
- org.eclipse.jface,
+Require-Bundle: org.eclipse.jface,
  org.eclipse.e4.core.di,
- org.eclipse.e4.ui.workbench;bundle-version="1.11.400",
- org.eclipse.e4.ui.model.workbench;bundle-version="2.1.800"
+ org.eclipse.e4.ui.workbench,
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.e4.core.di.annotations,
+ org.eclipse.swt,
+ org.eclipse.e4.core.services,
+ org.eclipse.osgi.services,
+ org.eclipse.e4.ui.di,
+ de.hsmw.service.fb.android;bundle-version="1.0.0",
+ de.hsmw.service.fb.apple;bundle-version="1.0.0"
 Import-Package: javax.annotation,
  javax.inject
 Bundle-ClassPath: .
-Export-Package: de.hsmw.ui.parts
+Export-Package: de.hsmw.ui.events,
+ de.hsmw.ui.parts

@@ -1,16 +1,33 @@
 package de.hsmw.service.fb.android.internal;
 
 import java.sql.*;
-import org.eclipse.e4.core.di.annotations.Execute;
-import org.eclipse.swt.widgets.Composite;
+import java.util.ArrayList;
 
 import de.hsmw.service.fb.android.api.IFacebookServiceAndroid;
+
 
 public class FacebookServiceAndroidImpl implements IFacebookServiceAndroid {
 	
 	
 	Connection connDB = null;
 	ResultSet rs = null;
+
+	String ownerID;
+	String ownerName;
+	public String getOwnerID() {
+		return ownerID;
+	}
+
+
+	public String getOwnerName() {
+		return ownerName;
+	}
+
+
+
+
+	
+
 	
 	private String androidGetOwnerQuery = "SELECT value FROM preferences WHERE key like '/auth/auth_device_based_login_credentials_______________'";
 	private String androidGetContatcsQuery = "SELECT user_key, first_name, last_name, username FROM thread_users";
@@ -18,8 +35,11 @@ public class FacebookServiceAndroidImpl implements IFacebookServiceAndroid {
 	private String androidGetSharedPlacesQuery = "SELECT shares FROM messages WHERE shares IS NOT NULL";
 	private String androidGetOwnerMailQuery = "SELECT value FROM preferences WHERE key='/google_accounts'";
 	
+	
+	
+	
 	@Override
-	public void getData(String threadsdb2) {
+	public void getData(String threadsdb2, String prefsDb) {
 		
 		
 		try {
@@ -29,7 +49,7 @@ public class FacebookServiceAndroidImpl implements IFacebookServiceAndroid {
 			e1.printStackTrace();
 		}
 		
-		
+	/**	
 		try {
 			retrieveContactData(threadsdb2);
 		} catch (SQLException e) {
@@ -56,11 +76,27 @@ public class FacebookServiceAndroidImpl implements IFacebookServiceAndroid {
 			System.out.println("Retreive Shared places Problem");
 		}
 		
+		try {
+			retrieveMessages(connDB, threadsdb2, prefsDb);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+			**/
+		
+		
+		try {
+			retrieveContacts(connDB, threadsdb2, prefsDb);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		
 	}
-	
-	
 	
 	
 	// einzelner Aufruf da Besitzerdaten in anderer Datenbank
@@ -87,14 +123,14 @@ public class FacebookServiceAndroidImpl implements IFacebookServiceAndroid {
 	
 			
 	@Override
-	public void connectDatabase(String dbPath) throws SQLException {
+	public Connection connectDatabase(String db1_path) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	//	System.out.println(dbPath);
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append("jdbc:sqlite:");
-		sb.append(dbPath);
+		sb.append(db1_path);
 	//	System.out.println(sb.toString());
 		
 		
@@ -129,7 +165,7 @@ public class FacebookServiceAndroidImpl implements IFacebookServiceAndroid {
 	
 		
 		
-		
+		return connDB;
 		
 
 }
@@ -148,16 +184,23 @@ public class FacebookServiceAndroidImpl implements IFacebookServiceAndroid {
 		}
 		try {
 
-			rs = st.executeQuery(androidGetOwnerQuery);
-			String name = rs.getString(1);
+			rs = st.executeQuery("SELECT key, value FROM preferences WHERE key like '/auth/auth_device_based_login_credentials_______________'");
+			String name = rs.getString(2);
 					name = (String) name.subSequence(name.indexOf(":")+1, name.indexOf(","));
 			
+			String id =	rs.getString(1);
 			System.out.println("\n" + "Besitzer" +"\n " + name +"\n");
 			
 			
 			rs = st.executeQuery(androidGetOwnerMailQuery);
 		
 			System.out.println("E-Mail" + "\n" + rs.getString(1) +"\n");
+			
+			ownerName = name;
+			ownerID = id;
+			
+			System.out.println(ownerName +" , "+ownerID);
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -206,7 +249,6 @@ public class FacebookServiceAndroidImpl implements IFacebookServiceAndroid {
 	
 	}
 
-
 	@Override
 	public void retrieveConversationData(String threads_db2) throws SQLException {
 		// TODO Auto-generated method stub
@@ -254,7 +296,6 @@ public class FacebookServiceAndroidImpl implements IFacebookServiceAndroid {
 
 	
 }
-
 
 	@Override
 	public void retrieveSharedPlaces(String threads_db2) throws SQLException {
@@ -311,9 +352,26 @@ public class FacebookServiceAndroidImpl implements IFacebookServiceAndroid {
 		}
 
 	
+	public void retrieveContacts(Connection connDB, String db1path, String db2path) throws SQLException{
 	
+		AndroidContactImpl getContacts = new AndroidContactImpl();
+		getContacts.getContacts(connDB, db1path, db2path);
+		
 	
+	}
 	
+	public ArrayList retrieveMessages(Connection connDB, String db1path, String db2path) throws SQLException{
+		
+		AndroidMessagesImpl getMessages = new AndroidMessagesImpl();
+		getMessages.getMessages(connDB, db1path, db2path);
+		
+		
+		return getMessages.getMessagEentry();
+	
+		
+		
+		
+	}
 	
 
 	

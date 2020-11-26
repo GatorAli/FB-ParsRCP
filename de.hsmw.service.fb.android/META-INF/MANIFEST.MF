@@ -6,13 +6,13 @@ Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: de.hsmw.service.fb
 Bundle-RequiredExecutionEnvironment: JavaSE-14
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.osgi
-Export-Package: de.hsmw.service.fb.android.api,
- de.hsmw.service.fb.android.internal;uses:="de.hsmw.service.fb.android.api"
+Require-Bundle: org.eclipse.osgi,
+ javax.inject
 Service-Component: OSGI-INF/component.xml
 Bundle-ClassPath: ./,
  lib/sqlite-jdbc-3.32.3.2.jar
 Import-Package: de.hsmw.service.fb.android.api,
- de.hsmw.service.fb.android.internal,
- org.eclipse.e4.core.di.annotations,
- org.eclipse.swt.widgets
+ de.hsmw.service.fb.android.internal
+Export-Package: de.hsmw.service.fb.android.api,
+ de.hsmw.service.fb.android.internal
+
