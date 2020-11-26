@@ -36,30 +36,18 @@ import org.eclipse.swt.events.SelectionEvent;
 	private IFacebookServiceAndroid androidService;
 	@Inject 
 	private IFacebookServiceApple appleService;
-	
+
 	
 	private Text db_path_1;
 	private Text db_path_2;
 	private String db1_path;
 	private String db2_path;
+	private String lightspeedPath;
 	
-
 	
-	public String getDb1_path() {
-		return db1_path;
-	}
-
-
-
-
 	@PostConstruct
 	public void createComposite(Composite parent) {
 		parent.setLayout(new GridLayout(5, false));
-		
-		MUIElement dashboardWindow = modelService.find( "de.hsmw.ui.trimmedwindow.Dashboard", app);
-		MUIElement loginWindow = modelService.find("de.hsmw.ui.trimmedwindow.Login", app);
-		
-		loginWindow.setToBeRendered(false);
 		
 				
 		new Label(parent, SWT.NONE);
@@ -126,7 +114,6 @@ import org.eclipse.swt.events.SelectionEvent;
 				FileDialog fd = new FileDialog(BrowseBtn_1.getShell());
 				fd.setFilterPath("G:\\Softwareprojekt\\Facebook\\001Testdaten_Grundlegendes\\ExtraktionGeorgSamsonG4\\Facebook Export");
 				
-			
 				db1_path = fd.open();
 				if (db1_path != null) {
 					db_path_1.setText(db1_path);
@@ -205,6 +192,8 @@ import org.eclipse.swt.events.SelectionEvent;
 		ConnectDbBtn.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				MUIElement DashboardWindow = modelService.find( "de.hsmw.ui.trimmedwindow.Dashboard", app);
+				MUIElement LoginWindow = modelService.find("de.hsmw.ui.trimmedwindow.Login", app);
 				
 				if(!AndroidRadioBtn.getSelection() && !AppleRadioBtn.getSelection()){
 				
@@ -224,23 +213,23 @@ import org.eclipse.swt.events.SelectionEvent;
 				
 				}else if ( AndroidRadioBtn.getSelection()){
 				
-				dashboardWindow.setToBeRendered(true);
-				//loginWindow.setToBeRendered(true);
+				DashboardWindow.setToBeRendered(true);
+				LoginWindow.setToBeRendered(false);
 				
-				androidService.getData(db1_path, db2_path);
-				//	androidService.getOwnerData(db2_path);
+					androidService.getData(db1_path);
+					androidService.getOwnerData(db2_path);
 					
 					
 			}else if(AppleRadioBtn.getSelection()) {
 				
 				
-				dashboardWindow.setToBeRendered(true);
-				//loginWindow.setToBeRendered(true);
+				DashboardWindow.setToBeRendered(true);
+				LoginWindow.setToBeRendered(false);
 				
 					appleService.getData(db1_path);
 					
-						
-					
+							
+				
 			}
 				
 		}
